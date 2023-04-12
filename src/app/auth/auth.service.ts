@@ -43,7 +43,7 @@ export class AuthService {
       .subscribe(() => {
         this.cookie.delete('token');
         this.user.next(null);
-        this.router.navigate(['/login']); // navigate to login page
+        this.router.navigate(['']); // navigate to login page
       });
   }
 
