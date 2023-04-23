@@ -13,23 +13,32 @@ interface User {
   last_name: string;
   email: string;
   password: string;
+  password_digest: string;
   country: string;
-  street_address: string;
+  street: string;
   city: string;
   state: string;
-  zipcode: string;
+  postal_code: string;
+  phone: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private user = new BehaviorSubject<any>(null);
+
   constructor(
     private http: HttpClient,
     private cookie: CookieService,
     private router: Router
-  ) {}
-  private user = new BehaviorSubject<any>(null);
+  ) {
+    const token = this.cookie.get('token');
+    if (token) {
+      // If a token exists in the cookie, set the user as authenticated
+      this.user.next(true);
+    }
+  }
 
   getCurrentUser() {
     return !!this.user.value;
@@ -44,19 +53,16 @@ export class AuthService {
       })
       .subscribe((response: any) => {
         this.cookie.set('token', response.payload.token.value);
-        this.user.next(response.payload.user);
+        this.user.next(true);
         this.router.navigate(['/home']); // navigate to home page
       });
   }
 
   register(user: User) {
-    
     return this.http
-
       .post('http://localhost:3000/api/v1/users/create', user)
-      .subscribe((response: any) => {
-        // handle success response, such as redirect to login page
-        this.router.navigate(['/login']); // navigate to login page
+      .subscribe(() => {
+        this.router.navigate(['/login']);
       });
   }
 
@@ -65,12 +71,12 @@ export class AuthService {
       .delete('http://localhost:3000/api/v1/users/logout')
       .subscribe(() => {
         this.cookie.delete('token');
-        this.user.next(null);
+        this.user.next(false);
         this.router.navigate(['']);
       });
   }
 
   isLoggedIn() {
-    return this.cookie.check('token');
+    return this.user.value;
   }
 }

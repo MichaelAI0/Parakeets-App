@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
     country: new FormControl('', [Validators.required]),
@@ -26,7 +28,7 @@ export class RegisterComponent implements OnInit {
     zipCode: new FormControl('', [Validators.required]),
   });
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
   ngOnInit(): void {}
 
   onSubmit() {
@@ -35,16 +37,15 @@ export class RegisterComponent implements OnInit {
         first_name: this.form.get('firstName')?.value,
         last_name: this.form.get('lastName')?.value,
         email: this.form.get('email')?.value,
+        phone: this.form.get('phone')?.value,
         password: this.form.get('password')?.value,
-        confirmPassword: this.form.get('confirmPassword')?.value,
+        password_digest: this.form.get('confirmPassword')?.value,
         country: this.form.get('country')?.value,
-        street_address: this.form.get('streetAddress')?.value,
+        street: this.form.get('streetAddress')?.value,
         city: this.form.get('city')?.value,
         state: this.form.get('state')?.value,
-        zipcode: this.form.get('zipCode')?.value,
+        postal_code: this.form.get('zipCode')?.value,
       };
-
-      console.log(user);
 
       this.authService.register(user);
     }
