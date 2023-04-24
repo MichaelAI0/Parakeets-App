@@ -3,10 +3,11 @@ export interface User {
   last_name: string;
   email: string;
   password: string;
+  password_digest: string;
   country: string;
-  street_address: string;
+  street: string;
   city: string;
   state: string;
-  zipcode: string;
+  postal_code: string;
   phone: string;
 }
