@@ -13,6 +13,7 @@ import { SignupComponent } from './components/functions/signup/signup.component'
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RegisterComponent } from './components/functions/register/register.component';
+import { User } from './models/user.model';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
@@ -79,8 +79,11 @@ export class AuthService {
   }
 
   logout() {
+    const token = this.cookie.get('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
     return this.http
-      .delete('http://localhost:3000/api/v1/users/logout')
+      .delete('http://localhost:3000/api/v1/users/logout', { headers })
       .subscribe(
         () => {
           this.cookie.delete('token');
