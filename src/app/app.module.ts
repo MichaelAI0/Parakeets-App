@@ -13,14 +13,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RegisterComponent } from './components/functions/register/register.component';
 
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationModalComponent } from './components/modals/confirmation-modal/confirmation-modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     HomeComponent,
     LoginComponent,
-
     RegisterComponent,
+    ConfirmationModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { RegisterComponent } from './components/functions/register/register.comp
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModalModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
