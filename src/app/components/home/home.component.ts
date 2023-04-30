@@ -9,13 +9,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomeComponent {
   isProfileMenuOpen = false;
-  isTabMenuOpen = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  openTabMenu() {
-    this.isTabMenuOpen = !this.isTabMenuOpen;
-  }
   toggleMenu() {
     this.isProfileMenuOpen = !this.isProfileMenuOpen;
   }

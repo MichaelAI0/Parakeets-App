@@ -15,6 +15,8 @@ import { RegisterComponent } from './components/functions/register/register.comp
 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalComponent } from './components/modals/confirmation-modal/confirmation-modal.component';
+import { TweetModalComponent } from './components/modals/tweet-modal/tweet-modal.component';
+import { TweetContainerComponent } from './components/containers/tweet-container/tweet-container.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ConfirmationModalComponent } from './components/modals/confirmation-mod
     LoginComponent,
     RegisterComponent,
     ConfirmationModalComponent,
+    TweetModalComponent,
+    TweetContainerComponent,
   ],
   imports: [
     BrowserModule,

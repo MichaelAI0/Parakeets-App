@@ -1,0 +1,13 @@
+<div class="tweet-container">
+  <div
+    *ngFor="let tweet of tweets"
+    class="tweet"
+    (click)="openTweetModal(tweet)"
+  >
+    <img [src]="tweet.user.profile_image_url" class="profile-image" />
+    <div class="tweet-content">
+      <h4>{{ tweet.user.name }}</h4>
+      <p>{{ tweet.text }}</p>
+    </div>
+  </div>
+</div>
