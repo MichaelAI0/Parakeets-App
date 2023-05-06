@@ -8,11 +8,9 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/functions/login/login.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RegisterComponent } from './components/functions/register/register.component';
-
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalComponent } from './components/modals/confirmation-modal/confirmation-modal.component';
 import { TweetModalComponent } from './components/modals/tweet-modal/tweet-modal.component';

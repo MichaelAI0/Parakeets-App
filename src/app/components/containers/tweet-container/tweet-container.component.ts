@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TweetModalComponent } from '../../modals/tweet-modal/tweet-modal.component';
+import { Tweet } from 'src/app/models/tweet.model';
 
 @Component({
   selector: 'app-tweet-container',
@@ -12,5 +13,8 @@ export class TweetContainerComponent {
 
   constructor(private modalService: NgbModal) {}
 
-  openTweetModal(tweet: Tweet) {}
+  openTweetModal(tweet: Tweet) {
+    const modalRef = this.modalService.open(TweetModalComponent);
+    modalRef.componentInstance.tweet = tweet;
+  }
 }
