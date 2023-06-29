@@ -2,6 +2,12 @@
 
 ## Introduction
 
+![ParaKeets-landing](https://github.com/MichaelAI0/Parakeets-App/assets/99698667/1c95dead-38c3-41ab-9b2f-554e442be5df)
+![ParaKeets-signup](https://github.com/MichaelAI0/Parakeets-App/assets/99698667/edcd1491-2bad-4c66-b5ba-9c7fffb3434b)
+![ParaKeets-signin](https://github.com/MichaelAI0/Parakeets-App/assets/99698667/1829f9c8-954a-4c2d-9828-83339213e947)
+![ParaKeets-home](https://github.com/MichaelAI0/Parakeets-App/assets/99698667/3129aba3-abc3-41e4-8222-f29f3cabbad6)
+
+
 Hi, I'm MichaelAI0, a junior developer looking to gain experience and improve my skills. This project is one of my first attempts to create something on my own and learn more about using the Rails api for my Angular application.
 
 ## Purpose
